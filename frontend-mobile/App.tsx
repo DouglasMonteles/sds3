@@ -1,5 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { 
+  StyleSheet, 
+} from 'react-native';
+
 import {
   useFonts,
   Ubuntu_300Light,
@@ -8,7 +12,8 @@ import {
   Ubuntu_700Bold,
 } from '@expo-google-fonts/ubuntu';
 import AppLoading from 'expo-app-loading';
-import fonts from './src/styles/fonts';
+
+import { NavBar } from './src/components/navbar';
 
 export default function App() {
   const [ isFontsLoaded ] = useFonts({
@@ -23,9 +28,9 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text>app works!</Text>
-    </View>
+    <>
+      <NavBar />
+    </>
   );
 }
 

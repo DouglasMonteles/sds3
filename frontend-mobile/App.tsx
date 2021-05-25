@@ -14,6 +14,7 @@ import {
 import AppLoading from 'expo-app-loading';
 
 import { NavBar } from './src/components/navbar';
+import { Footer } from './src/components/footer';
 
 export default function App() {
   const [ isFontsLoaded ] = useFonts({
@@ -30,6 +31,8 @@ export default function App() {
   return (
     <>
       <NavBar />
+
+      <Footer />
     </>
   );
 }

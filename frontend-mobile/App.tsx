@@ -17,6 +17,8 @@ import AppLoading from 'expo-app-loading';
 import { NavBar } from './src/components/navbar';
 import { Footer } from './src/components/footer';
 import { DataTableSale } from './src/components/data-table-sale';
+import { BarChartSale } from './src/components/bar-chart-sale';
+import { DonutChartSale } from './src/components/donut-chart-sale';
 
 export default function App() {
   const [isFontsLoaded] = useFonts({
@@ -33,7 +35,14 @@ export default function App() {
   return (
     <>
       <NavBar />
-      <DataTableSale />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={styles.scrollContainer}
+      >
+        <BarChartSale />
+        <DonutChartSale />
+        <DataTableSale />
+      </ScrollView>
       <Footer />
     </>
   );
@@ -45,5 +54,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  scrollContainer: {
+    marginVertical: 10,
   },
 });

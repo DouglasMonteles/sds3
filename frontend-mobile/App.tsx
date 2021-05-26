@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { 
-  StyleSheet, 
+import {
+  ScrollView,
+  StyleSheet,
 } from 'react-native';
 
 import {
@@ -15,9 +16,10 @@ import AppLoading from 'expo-app-loading';
 
 import { NavBar } from './src/components/navbar';
 import { Footer } from './src/components/footer';
+import { DataTableSale } from './src/components/data-table-sale';
 
 export default function App() {
-  const [ isFontsLoaded ] = useFonts({
+  const [isFontsLoaded] = useFonts({
     Ubuntu_300Light,
     Ubuntu_400Regular,
     Ubuntu_500Medium,
@@ -31,7 +33,7 @@ export default function App() {
   return (
     <>
       <NavBar />
-
+      <DataTableSale />
       <Footer />
     </>
   );

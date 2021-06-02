@@ -11,8 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.dsvendas.dto.SaleDTO;
 import com.devsuperior.dsvendas.dto.SaleSuccessDTO;
 import com.devsuperior.dsvendas.dto.SaleSumDTO;
-import com.devsuperior.dsvendas.repositories.SaleRepository;
-import com.devsuperior.dsvendas.repositories.SellerRepository;
+import com.devsuperior.dsvendas.repository.SaleRepository;
 
 @Service
 public class SaleService {
@@ -20,12 +19,8 @@ public class SaleService {
 	@Autowired
 	private SaleRepository repository;
 	
-	@Autowired
-	private SellerRepository sellerRepository;
-
 	@Transactional(readOnly = true)
 	public Page<SaleDTO> findAll(Pageable pageable) {
-		sellerRepository.findAll();
 		return repository.findAll(pageable)
 				.map(sale -> new SaleDTO(sale));
 	}
@@ -39,5 +34,5 @@ public class SaleService {
 	public List<SaleSuccessDTO> successGroupedBySeller() {
 		return repository.successGroupedBySeller();
 	}
-
+	
 }

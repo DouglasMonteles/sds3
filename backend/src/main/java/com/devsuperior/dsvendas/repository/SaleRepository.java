@@ -1,4 +1,4 @@
-package com.devsuperior.dsvendas.repositories;
+package com.devsuperior.dsvendas.repository;
 
 import java.util.List;
 
@@ -15,10 +15,10 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
 
 	@Query("SELECT new com.devsuperior.dsvendas.dto.SaleSumDTO(obj.seller, SUM(obj.amount))"
 			+ " FROM Sale AS obj GROUP BY obj.seller")
-	List<SaleSumDTO> amountGroupedBySeller();
+	public List<SaleSumDTO> amountGroupedBySeller();
 	
 	@Query("SELECT new com.devsuperior.dsvendas.dto.SaleSuccessDTO(obj.seller, SUM(obj.visited), SUM(obj.deals))"
-			+ " FROM Sale as obj GROUP BY obj.seller")
-	List<SaleSuccessDTO> successGroupedBySeller();
+			+ " FROM Sale AS obj GROUP BY obj.seller")
+	public List<SaleSuccessDTO> successGroupedBySeller();
 	
 }

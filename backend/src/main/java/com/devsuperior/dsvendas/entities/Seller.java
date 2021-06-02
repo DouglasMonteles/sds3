@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TB_SELLERS")
+@Table(name = "tb_sellers")
 public class Seller implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -24,10 +24,10 @@ public class Seller implements Serializable {
 	private String name;
 	
 	@OneToMany(mappedBy = "seller")
-	private List<Sale> sales = new ArrayList<>();
+	List<Sale> sales = new ArrayList<>();
 	
 	public Seller() {}
-
+	
 	public Seller(Long id, String name) {
 		super();
 		this.id = id;
@@ -48,10 +48,6 @@ public class Seller implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<Sale> getSales() {
-		return sales;
 	}
 	
 }

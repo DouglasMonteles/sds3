@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.devsuperior.dsvendas.dto.SaleDTO;
 import com.devsuperior.dsvendas.dto.SaleSuccessDTO;
 import com.devsuperior.dsvendas.dto.SaleSumDTO;
+import com.devsuperior.dsvendas.repository.SellerRepository;
 import com.devsuperior.dsvendas.services.SaleService;
 
 @RestController
@@ -22,8 +23,12 @@ public class SaleResource {
 	@Autowired
 	private SaleService service;
 	
+	@Autowired
+	private SellerRepository sellerRepository;
+	
 	@GetMapping
 	public ResponseEntity<Page<SaleDTO>> findAll(Pageable pageable) {
+		sellerRepository.findAll();
 		Page<SaleDTO> page = service.findAll(pageable);
 		return ResponseEntity.ok().body(page);
 	}

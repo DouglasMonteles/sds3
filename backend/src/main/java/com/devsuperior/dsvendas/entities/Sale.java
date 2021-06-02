@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Sale implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -40,7 +40,7 @@ public class Sale implements Serializable {
 		this.deals = deals;
 		this.amount = amount;
 		this.date = date;
-		this.seller = seller;
+		this.setSeller(seller);
 	}
 
 	public Long getId() {
@@ -90,5 +90,5 @@ public class Sale implements Serializable {
 	public void setSeller(Seller seller) {
 		this.seller = seller;
 	}
-	
+
 }
